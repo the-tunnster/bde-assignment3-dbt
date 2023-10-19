@@ -1,0 +1,5 @@
+neighbourhood_id (PK)
+lga_code
+listing_neighbourhood
+host_neighbourhood
+host_neighbourhood_lga
