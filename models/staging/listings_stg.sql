@@ -3,10 +3,7 @@ WITH source AS (
     LISTING_ID AS LISTING_ID,
     HOST_ID AS HOST_ID,
     LOWER(HOST_NAME) AS HOST_NAME,
-	CASE 
-        WHEN safe_date(HOST_SINCE, 'DD-MM-YYYY') IS NOT NULL THEN safe_date(HOST_SINCE, 'DD-MM-YYYY')
-        ELSE NULL 
-    END AS HOST_SINCE,
+	HOST_SINCE,
     CASE 
         WHEN HOST_IS_SUPERHOST = 't' THEN TRUE
         WHEN HOST_IS_SUPERHOST = 'f' THEN FALSE
@@ -54,8 +51,15 @@ WITH source AS (
 	CASE
 		WHEN REVIEW_SCORES_VALUE = 'NaN' then 0
 		ELSE REVIEW_SCORES_VALUE
-	END AS VALUE_RATING
-		FROM {{ source('raw', 'listings') }}
+	END AS VALUE_RATING,
+	dbt_scd_id AS UPDATE_ID,
+	dbt_updated_at AS UPDATED_AT,
+	dbt_valid_from as VALID_FROM,
+	CASE
+		WHEN dbt_valid_to = NULL THEN (SELECT MAX(dbt_valid_to) FROM {{ ref('listings_snapshot') }})
+		ELSE dbt_valid_to
+	END AS VALID_TO
+		FROM {{ ref('listings_snapshot') }}
 )
 
-select * from source
+SELECT * FROM source

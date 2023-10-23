@@ -1,6 +1,7 @@
 WITH table_1 AS (
     SELECT * FROM {{ source('raw', 'census_data_g01') }}
 ),
+
 table_2 AS (
     SELECT * FROM {{ source('raw', 'census_data_g02') }}
 )
