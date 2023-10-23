@@ -1,5 +1,13 @@
-property_id (PK)
-property_type
-room_type
-accommodates
-price
+SELECT
+	LISTING_ID,
+	LISTING_NEIGHBOURHOOD,
+	PROPERTY_TYPE,
+	ROOM_TYPE,
+	ACCOMMODATES,
+	PRICE,
+	HAS_AVAILABILITY,
+	AVAILABILITY_NEXT_30_DAYS,
+	REVIEW_COUNT,
+	OVERALL_RATING
+		FROM {{ ref('listings_stg') }}
+

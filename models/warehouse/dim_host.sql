@@ -1,4 +1,9 @@
-host_id (PK)
-host_name
-host_since
-is_superhost
+SELECT
+	HOST_ID,
+	HOST_NAME,
+	HOST_SINCE,
+	IS_SUPERHOST,
+	HOST_NEIGHBOURHOOD as NEIGHBOURHOOD,
+	VALID_FROM,
+	VALID_TO
+		FROM {{ ref('listings_stg') }}
