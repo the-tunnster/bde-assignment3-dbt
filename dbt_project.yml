@@ -37,7 +37,7 @@ models:
       +materialized: view
       +schema: datamart
     warehouse:
-      +materialized: view
+      +materialized: table
       +schema: warehouse
     staging:
       +materialized: view
