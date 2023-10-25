@@ -3,7 +3,7 @@
 {{
         config(
           target_schema='raw',
-		      unique_key="listing_id||'-'||host_id||'-'||scrape_id",
+		      unique_key="listing_id||'-'||host_id",
 
           strategy='timestamp',
           updated_at='scraped_date'
