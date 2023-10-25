@@ -1,5 +1,5 @@
 WITH table_1 AS (
-	SELECT * FROM {{ ref('listings_stg') }}
+	SELECT * FROM {{ ref('fact_listings') }}
 ),
 
 table_2 AS(

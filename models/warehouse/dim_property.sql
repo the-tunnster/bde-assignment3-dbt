@@ -9,5 +9,5 @@ SELECT
 	AVAILABILITY_NEXT_30_DAYS,
 	REVIEW_COUNT,
 	OVERALL_RATING
-		FROM {{ ref('listings_stg') }}
+		FROM {{ ref('fact_listings') }}
 

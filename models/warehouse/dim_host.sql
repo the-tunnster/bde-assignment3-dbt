@@ -6,4 +6,4 @@ SELECT
 	HOST_NEIGHBOURHOOD as NEIGHBOURHOOD,
 	VALID_FROM,
 	VALID_TO
-		FROM {{ ref('listings_stg') }}
+		FROM {{ ref('fact_listings') }}
