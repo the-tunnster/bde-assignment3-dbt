@@ -1,8 +1,8 @@
 WITH source AS (
-    SELECT * FROM {{ source('raw', 'lga_name_suburb') }}
+    SELECT * FROM {{ ref('lga_stg') }}
 )
 
 SELECT 
-	LOWER(source.LGA_NAME) as LGA_NAME,
-	LOWER(source.LGA_SUBURB) as LGA_SUBURB
+	LGA_NAME as LGA_NAME,
+	LGA_SUBURB as LGA_SUBURB
 		FROM source
