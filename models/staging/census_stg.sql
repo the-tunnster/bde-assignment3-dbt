@@ -16,4 +16,5 @@ SELECT table_1.*,
     table_2.Median_tot_hhd_inc_weekly,
     table_2.Average_household_size
 		FROM table_1
-			JOIN table_2 ON table_1.lga_code = table_2.lga_code
+			JOIN table_2 
+                ON table_1.LGA_CODE = table_2.LGA_CODE

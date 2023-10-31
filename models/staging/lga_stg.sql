@@ -7,9 +7,9 @@ table_2 AS (
 )
 
 SELECT 
-	LOWER(table_1.LGA_NAME) as lga_name,
-	LOWER(table_1.LGA_SUBURB) as lga_suburb,
-	table_2.LGA_CODE as lga_code
-		FROM raw.lga_name_suburb table_1
-			left JOIN raw.lga_code_name table_2
-				ON LOWER(table_1.lga_name) = LOWER(table_2.lga_name)
+	LOWER(table_1.LGA_NAME) as LGA_NAME,
+	LOWER(table_1.LGA_SUBURB) as LGA_SUBURB,
+	table_2.LGA_CODE as LGA_CODE
+		FROM table_1
+			left JOIN table_2
+				ON LOWER(table_1.LGA_NAME) = LOWER(table_2.LGA_NAME)
