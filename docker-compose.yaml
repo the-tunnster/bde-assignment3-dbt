@@ -1,0 +1,13 @@
+version: "1.0"
+services: 
+  partytime-database:
+    container_name: postgres-db
+    image: postgres
+    volumes: 
+      - ./data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: "root_password"
+    ports: 
+      - "5432:5432"
+    expose:
+      - "5432"
